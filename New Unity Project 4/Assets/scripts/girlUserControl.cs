@@ -10,13 +10,11 @@ namespace UnitySampleAssets._2D
         private PlatformerCharacter2D character;
         private bool jump;
         public bool isActive = true;
-        private GameObject branchMantelPoint;
 
 
         private void Awake()
         {
             character = GetComponent<PlatformerCharacter2D>();
-            //branchMantelPoint = GameObject.Find("branch/mantelPoint");
         }
 
         private void Update()
@@ -41,8 +39,9 @@ namespace UnitySampleAssets._2D
                 // Read the inputs.
                 bool crouch = Input.GetKey(KeyCode.LeftControl);
                 float h = CrossPlatformInputManager.GetAxis("Horizontal");
+                float v = CrossPlatformInputManager.GetAxis("Vertical");
                 // Pass all parameters to the character control script.
-                character.Move(h, crouch, jump);
+                character.Move(h, v, crouch, jump);
                 jump = false;
 
             }
@@ -60,28 +59,29 @@ namespace UnitySampleAssets._2D
         private bool isManteling;
 
 
-        void OnCollisionEnter2D(Collision2D collider)
+        void OnTriggerEnter2D(Collider2D collider)
         {
             //Debug.Log(collider.transform.ToString());
 
-            //if (collider.transform == branchMantelPoint.transform)
-            //{
-            //    //startTime = Time.time;
-            //    //startMarker = transform.Find("GroundCheck");
-            //    //endMarker = GameObject.Find("branch").transform;
-            //    //BoxCollider2D endMarkerBox = endMarker.GetComponent<BoxCollider2D>();
-            //    //journeyLength = Vector3.Distance(startMarker.position, endMarker.position + endMarkerBox.bounds.extents);
-            //    Renderer rend = GetComponent<Renderer>();
-            //    transform.position = new Vector3(transform.position.x + rend.bounds.extents.x,
-            //       rend.bounds.extents.y * .5f,
-            //        transform.position.z);
+            //if (collider.transform == mantelPoint.transform)
+            if(collider.gameObject.tag == "mantelPoint")
+            {
+                //startTime = Time.time;
+                //startMarker = transform.Find("GroundCheck");
+                //endMarker = GameObject.Find("branch").transform;
+                //BoxCollider2D endMarkerBox = endMarker.GetComponent<BoxCollider2D>();
+                //journeyLength = Vector3.Distance(startMarker.position, endMarker.position + endMarkerBox.bounds.extents);
+                Renderer rend = GetComponent<Renderer>();
+                transform.position = new Vector3(transform.position.x + rend.bounds.extents.x,
+                   rend.bounds.extents.y * .5f,
+                    transform.position.z);
 
 
-            //    ////playerBottomPos = branch.position;
-            //    //Vector3 sub = branchTopPos - playerBottomPos;
-            //    //transform.Translate(sub.x, sub.y, sub.z, null);
-            //    isManteling = true;
-            //}
+                ////playerBottomPos = branch.position;
+                //Vector3 sub = branchTopPos - playerBottomPos;
+                //transform.Translate(sub.x, sub.y, sub.z, null);
+                isManteling = true;
+            }
 
         }
 

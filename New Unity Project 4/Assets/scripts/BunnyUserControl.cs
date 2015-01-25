@@ -81,7 +81,7 @@ namespace UnitySampleAssets._2D
             // Read the inputs.
             bool crouch = Input.GetKey(KeyCode.LeftControl);
             // Pass all parameters to the character control script.
-            character.Move(hMovement, crouch, jump);
+            character.Move(hMovement, 0, crouch, jump);
             jump = false;
         }
 

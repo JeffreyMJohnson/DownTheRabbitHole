@@ -50,7 +50,7 @@ namespace UnitySampleAssets._2D
         }
 
 
-        public void Move(float move, bool crouch, bool jump)
+        public void Move(float move, float moveV, bool crouch, bool jump)
         {
             // We fucked up. Flip the move.
             move *= -1;
@@ -102,6 +102,20 @@ namespace UnitySampleAssets._2D
                     Flip();
                 }
             }
+
+             if (climbing)
+                {
+                    rigidbody2D.velocity = new Vector2(0.0f, moveV * maxSpeed);
+
+                    if (jump)
+                    {
+                        climbing = false;
+                        anim.SetBool("Ground", false);
+                        rigidbody2D.AddForce(new Vector2(jumpForce, jumpForce));
+                    }
+
+                }
+
             // If the player should jump...
             if (grounded && jump && anim.GetBool("Ground"))
             {
