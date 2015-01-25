@@ -8660,7 +8660,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -489.399994, y: 40.2000008, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1603226677}
   m_Father: {fileID: 0}
   m_RootOrder: 15
 --- !u!61 &1529549274
@@ -8734,7 +8735,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -204.009995, y: 0, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 2141073809}
   m_Father: {fileID: 0}
   m_RootOrder: 6
 --- !u!61 &1540974387
@@ -10431,6 +10433,45 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: 5.13999987, y: 43.5800018}
   m_Center: {x: 0, y: -7.30000019}
+--- !u!1 &1603226676
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1603226677}
+  - 61: {fileID: 1603226678}
+  m_Layer: 9
+  m_Name: mantlePoint
+  m_TagString: mantelPoint
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1603226677
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1603226676}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1, y: -3.29999995, z: 0}
+  m_LocalScale: {x: -.737271011, y: .737271011, z: .737271011}
+  m_Children: []
+  m_Father: {fileID: 1529549273}
+  m_RootOrder: 0
+--- !u!61 &1603226678
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1603226676}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: .5, y: 4.5}
+  m_Center: {x: 10, y: -2}
 --- !u!1 &1604728649
 GameObject:
   m_ObjectHideFlags: 0
@@ -17454,3 +17495,42 @@ Transform:
   m_Children: []
   m_Father: {fileID: 633147927}
   m_RootOrder: 81
+--- !u!1 &2141073808
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2141073809}
+  - 61: {fileID: 2141073810}
+  m_Layer: 9
+  m_Name: mantlePoint
+  m_TagString: mantelPoint
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2141073809
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2141073808}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1, y: -3.0999999, z: 0}
+  m_LocalScale: {x: -.737271011, y: .737271011, z: .737271011}
+  m_Children: []
+  m_Father: {fileID: 1540974386}
+  m_RootOrder: 0
+--- !u!61 &2141073810
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2141073808}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: .5, y: 4.5}
+  m_Center: {x: 10, y: -2}
