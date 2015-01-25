@@ -23,6 +23,7 @@ namespace UnitySampleAssets._2D
         private float ceilingRadius = .01f; // Radius of the overlap circle to determine if the player can stand up
         private Animator anim; // Reference to the player's animator component.
 
+        private bool climbing = false;
         public bool isWalking = false;
         public AudioClip walking;
 
@@ -51,7 +52,8 @@ namespace UnitySampleAssets._2D
 
         public void Move(float move, bool crouch, bool jump)
         {
-
+            // We fucked up. Flip the move.
+            move *= -1;
 
             //// If crouching, check to see if the character can stand up
             //if (!crouch && anim.GetBool("Crouch"))
@@ -138,5 +140,27 @@ namespace UnitySampleAssets._2D
                 audio.Stop();
             }
         }
+
+        private void OnTriggerEnter2D(Collider2D col)
+        {
+                if (col.gameObject.tag == "Vine")
+                {
+                    climbing = true;
+                    gameObject.transform.SetParent(col.gameObject.transform);
+                    rigidbody2D.isKinematic = true;
+                }
+        }
+
+        private void OnTriggerExit2D(Collider2D col)
+        {
+                if (col.gameObject.tag == "Vine")
+                {
+                    climbing = false;
+                    gameObject.transform.SetParent(null);
+                    rigidbody2D.isKinematic = false;
+                }
+        }
+
+
     }
 }
